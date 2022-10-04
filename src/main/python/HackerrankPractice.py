@@ -263,6 +263,7 @@ print(string1 == string2[::-1])
 """
 
 # Birthday chocolate
+"""
 def birthday(s, d, m):
     count = 0
     for x in range(len(s)):
@@ -274,3 +275,65 @@ def birthday(s, d, m):
 print(birthday([2, 2, 1, 3, 2], 4, 2))
 print(birthday([1, 2, 1, 3, 2], 3, 2))
 print(birthday([4], 4, 1))
+"""
+
+
+# def foreverSum(input):
+#     output = [input[0]]
+#     keep = True
+#     start = 1
+#     end = 3
+#     jump = 3
+#
+#     while keep:
+#         output.append(sum(input[start:end]))
+#         start = end
+#         end += jump
+#         jump += 1
+#         if start >= len(input): keep = False
+#
+#     print(output)
+#
+#
+# foreverSum([1, 6, 8, 5, 9, 4, 7, 2, 5, 2, 4, 6, 1, 9, 7])
+# foreverSum([1, 6, 8, 5, 9, 4, 7, 2, 5, 2, 4, 6, 1, 9])
+# foreverSum([1, 6, 8, 5, 9, 4, 7, 2, 5, 2, 4])
+# foreverSum([1, 6, 8, 5, 9, 4, 7, 2, 5])
+# foreverSum([1, 1])
+
+# numbers = []
+# operators = ['+', '*', '-', '/']
+# desire = int(input("Enter the number you want: "))
+# num1 = input("Enter First number: ")
+# num2 = input("Enter Second number: ")
+# num3 = input("Enter Third number: ")
+# num4 = input("Enter Fourth number: ")
+# numbers.append(num1)
+# numbers.append(num2)
+# numbers.append(num3)
+# numbers.append(num4)
+#
+# for operator1 in operators:
+#     for operator2 in operators:
+#         for operator3 in operators:
+#             problem = numbers[0] + operator1 + numbers[1] + operator2 + numbers[2] + operator3 + numbers[3]
+#             result = int(eval(problem))
+#             if result == desire:
+#                 print("{} = {}".format(problem, result))
+
+def maxArea(height) -> int:
+    maxarea = 0
+    left = 0
+    right = len(height) - 1
+
+    while left < right:
+        width = right - left
+        maxarea = max(maxarea, min(height[left], height[right]) * width)
+        if height[left] <= height[right]:
+            left += 1
+        else:
+            right -= 1
+
+    return maxarea
+
+print(maxArea([1,8,6,2,5,4,8,3,7]))
